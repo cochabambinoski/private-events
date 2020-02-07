@@ -1,11 +1,9 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, current_user.name) %>
+<div class="user-info">
+	<h1><%= @user.name %></h1>
+	<p>
+		email: <%= @user.email %>
+	</p>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>

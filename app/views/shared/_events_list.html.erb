@@ -1,0 +1,19 @@
+<div>
+	<% if object.any? %>
+		<h3><%= name %></h3>
+		<ol class="events">
+			<% object.each do |event| %>
+				<li>
+					<%= link_to event.description.capitalize, event %>
+					(<%= event.date.strftime("%B %e, %Y") %>)
+					<% if name == 'Invited' && @user == current_user %>
+						<%= link_to 'Accept', invitation_path(id: find_invitation(event), choice: 1),
+																	method: :put %> or
+						<%= link_to 'Reject', invitation_path(find_invitation(event), choice: 0),
+																	method: :put %> 
+					<% end %>	
+				</li>
+			<% end %>
+		</ol>
+	<% end %>
+</div>
