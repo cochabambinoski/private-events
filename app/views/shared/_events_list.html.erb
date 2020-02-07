@@ -4,12 +4,12 @@
 		<ol class="events">
 			<% object.each do |event| %>
 				<li>
-					<%= link_to event.description.capitalize, event %>
+					<%= link_to event.content.capitalize, event %>
 					(<%= event.date.strftime("%B %e, %Y") %>)
 					<% if name == 'Invited' && @user == current_user %>
-						<%= link_to 'Accept', invitation_path(id: find_invitation(event), choice: 1),
+						<%= link_to 'Accept', attendance_path(id: find_attendance(event), choice: 1),
 																	method: :put %> or
-						<%= link_to 'Reject', invitation_path(find_invitation(event), choice: 0),
+						<%= link_to 'Reject', attendance_path(find_attendance(event), choice: 0),
 																	method: :put %> 
 					<% end %>	
 				</li>

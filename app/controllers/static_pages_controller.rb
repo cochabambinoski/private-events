@@ -3,6 +3,5 @@ class StaticPagesController < ApplicationController
     @event = current_user.events.build if logged_in?
   end
 
-  def help
-  end
+  def help; end
 end

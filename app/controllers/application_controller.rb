@@ -4,12 +4,11 @@ class ApplicationController < ActionController::Base
 
   private
 
-    # Confirms a logged-in user.
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "Please log in."
-        redirect_to login_url
-      end
-    end
+  # Confirms a logged-in user.
+  def logged_in_user
+    return if logged_in?
+
+    flash[:error] = 'You must be logged in to access this section'
+    redirect_to login_url
+  end
 end
