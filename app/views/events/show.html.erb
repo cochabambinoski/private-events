@@ -1,0 +1,10 @@
+<h1><%= @event.content.upcase %></h1>
+<div>
+	<p><b>Event user: </b><%= @event.user.name %></p>
+	<p><b>Date: </b><%= @event.date.strftime("%B %e, %Y") %></p>
+	<% if !@users.empty? && current_user == @event.user %>
+		<%= render 'shared/attendance_form' %>
+	<% else %>
+		No one to invite
+	<% end %>
+</div>

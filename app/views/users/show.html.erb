@@ -1,0 +1,13 @@
+<% provide(:title, current_user.name) %>
+<div class="user-info">
+	<h1><%= @user.name %></h1>
+	<p>
+		email: <%= @user.email %>
+	</p>
+</div>
+
+
+<%= render 'shared/events_list', object: @user.events, name: 'Hosting' %>
+<%= render 'shared/events_list', object: @upcoming_events, name: 'Upcoming' %>
+<%= render 'shared/events_list', object: @prev_events, name: 'Already happened' %>
+<%= render 'shared/events_list', object: @invited_events, name: 'Invited' %>
